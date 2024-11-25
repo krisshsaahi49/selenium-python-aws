@@ -13,8 +13,8 @@ def driver():
     option.add_argument("--no-sandbox")
     option.add_argument("--disable-extensions")
     option.add_argument("--disable-gpu")
-    driver_path = '/usr/local/bin/chromedriver'
-    driver = webdriver.Chrome(driver_path, options=option)
+    driver_path = ChromeService(executable_path='/usr/local/bin/chromedriver')
+    driver = webdriver.Chrome(service=driver_path, options=option)
     # driver = webdriver.Chrome(service=ChromeService(executable_path=ChromeDriverManager().install()), options=option)
     driver.delete_all_cookies()
     driver.maximize_window()
