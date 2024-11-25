@@ -13,8 +13,9 @@ def driver():
     option.add_argument("--no-sandbox")
     option.add_argument("--disable-extensions")
     option.add_argument("--disable-gpu")
-    driver_path = ChromeService(executable_path='/usr/local/bin/chromedriver')
-    driver = webdriver.Chrome(service=driver_path, options=option)
+    service = ChromeService(executable_path="/usr/local/bin/chromedriver")
+    # service = ChromeService(executable_path="/Users/krishnasaahiyavana/Downloads/chromedriver-mac-arm64/chromedriver")
+    driver = webdriver.Chrome(service=service, options=option)
     # driver = webdriver.Chrome(service=ChromeService(executable_path=ChromeDriverManager().install()), options=option)
     driver.delete_all_cookies()
     driver.maximize_window()
@@ -30,6 +31,7 @@ def test_signin(driver, username, password):
     login.enter_username(username)
     login.enter_password(password)
     login.login_title()
+    print("Signin Test Complete")
 
 def test_rentacar(driver):
     test_signin(driver,"test","test")
@@ -37,3 +39,4 @@ def test_rentacar(driver):
     home = HomePage(driver)
     home.goto_4runner()
     home.rent_car("Indianapolis")
+    print("Rent a car Test Complete")
