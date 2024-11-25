@@ -13,7 +13,7 @@ def driver():
     option.add_argument("--no-sandbox")
     option.add_argument("--disable-extensions")
     option.add_argument("--disable-gpu")
-    service = ChromeService(executable_path="/usr/local/bin/chromedriver")
+    service = ChromeService(executable_path="/root/chromedriver-linux64/chromedriver")
     # service = ChromeService(executable_path="/Users/krishnasaahiyavana/Downloads/chromedriver-mac-arm64/chromedriver")
     driver = webdriver.Chrome(service=service, options=option)
     # driver = webdriver.Chrome(service=ChromeService(executable_path=ChromeDriverManager().install()), options=option)
